@@ -63,7 +63,7 @@ output {
   stdout { codec => rubydebug }
   
   http {
-    url => "https://<YOUR-INSTANCE-ID>.databases.neo4j.io/db/neo4j/query/v2/tx"
+    url => "https://<YOUR-INSTANCE-ID>.databases.neo4j.io/db/neo4j/query/v2"
     http_method => "post"
     headers => [
       "Authorization", "Basic YOUR_BASE64_STRING",
@@ -84,6 +84,10 @@ output {
 Run the pipeline:
 ```bash
 sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/auth_neo4j_http_param.conf
+```
+Run the pipeline with debug mode:
+```bash
+sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/auth_neo4j_http_param.conf --log.level=debug
 ```
 
 ## Understanding the Pipeline
