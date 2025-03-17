@@ -66,7 +66,7 @@ output {
     url => "https://<YOUR-INSTANCE-ID>.databases.neo4j.io/db/neo4j/query/v2/tx"
     http_method => "post"
     headers => [
-      "Authorization", "Basic bmVvNGo6YThIalljR3NZZnNnYkRhbVNZd0c0bWNpZmJoYVJwUFpQamlhWldxbC1SYw==",
+      "Authorization", "Basic YOUR_BASE64_STRING",
       "Content-Type", "application/json",
       "Accept", "application/json"
     ]
