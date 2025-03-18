@@ -8,7 +8,9 @@ This repository contains a Logstash pipeline configuration for integrating with 
 logstash-neo4j-integration/
 ├── README.md
 ├── pipelines/
-│   └── auth_neo4j_http_param.conf
+│   └── logstash-neo4j-basic.conf
+│   └── logstash-neo4j-batching-dynamic.conf
+│   └── logstash-neo4j-batching-simple.conf
 ```
 
 ## Prerequisites
@@ -49,13 +51,13 @@ Verify installation:
 
 ## Create and Run Pipeline
 
-Create the pipeline configuration file at `/etc/logstash/conf.d/auth_neo4j_http_param.conf`:
+Create the pipeline configuration file at `/etc/logstash/conf.d/logstash-neo4j-basic.conf`:
 
 ```
 input {
   generator {
     count => 1
-    lines => [ '{"name": "Yancarlo"}' ]
+    lines => [ '{"name": "User1"}' ]
     codec => "json"
   }
 }
@@ -83,11 +85,11 @@ output {
 
 Run the pipeline:
 ```bash
-sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/auth_neo4j_http_param.conf
+sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash-neo4j-basic.conf
 ```
 Run the pipeline with debug mode:
 ```bash
-sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/auth_neo4j_http_param.conf --log.level=debug
+sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash-neo4j-basic.conf --log.level=debug
 ```
 
 ## Understanding the Pipeline
@@ -97,7 +99,7 @@ sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/auth_neo4j_http_pa
 This pipeline consists of:
 
 1. **Input Plugin - Generator**:
-   - Creates a single event with a JSON document `{"name": "Yancarlo"}`
+   - Creates a single event with a JSON document `{"name": "logstash-neo4j-basic.conf"}`
    - Uses the `json` codec to parse the event into a Logstash event
 
 2. **Output Plugins**:
