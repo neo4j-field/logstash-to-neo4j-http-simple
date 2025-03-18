@@ -99,7 +99,7 @@ sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash-neo4j-bas
 This pipeline consists of:
 
 1. **Input Plugin - Generator**:
-   - Creates a single event with a JSON document `{"name": "logstash-neo4j-basic.conf"}`
+   - Creates a single event with a JSON document `{"name": "User1""}`
    - Uses the `json` codec to parse the event into a Logstash event
 
 2. **Output Plugins**:
